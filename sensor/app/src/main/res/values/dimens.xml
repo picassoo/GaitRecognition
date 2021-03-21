@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="new_form_element_height">60dp</dimen>
+    <dimen name="new_layout_padding">20dp</dimen>
+
+</resources>

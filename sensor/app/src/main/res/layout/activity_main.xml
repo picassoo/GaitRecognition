@@ -1,0 +1,306 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_scrollview"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:keepScreenOn="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:padding="@dimen/new_layout_padding">
+
+
+        <LinearLayout
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_yellow"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/audiowide"
+                android:text="Status"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_brown"
+                android:fontFamily="@font/audiowide"
+                android:text="@string/Status"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/sensorgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_yellow"
+            android:orientation="vertical"
+            >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/audiowide"
+                        android:text="@string/Header_Sensor"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/audiowide"
+                        android:text="@string/Header_Time"
+                        android:textSize="20sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioGroup
+                        android:id="@+id/sensor_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/accelerometer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/acc"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/gyroscope"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/gro"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+                    <RadioGroup
+                        android:id="@+id/time_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/time_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/time_3" />
+
+                        <RadioButton
+                            android:id="@+id/time_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/time_4" />
+
+                        <RadioButton
+                            android:id="@+id/time_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/time_5" />
+
+                        <RadioButton
+                            android:id="@+id/time_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/audiowide"
+                            android:text="@string/time_6" />
+                    </RadioGroup>
+
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sensorgroup"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_selector_2"
+            android:fontFamily="@font/audiowide"
+            android:onClick="registerListener"
+            android:text="@string/start" />
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_selector"
+            android:fontFamily="@font/audiowide"
+            android:onClick="unregisterListener"
+            android:text="@string/stop" />
+
+        <LinearLayout
+            android:id="@+id/result_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stop"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_yellow"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/header_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_column="0"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/audiowide"
+                        android:text="@string/Header_Result"
+                        android:textSize="20sp" />
+
+                    <Button
+
+                        android:id="@+id/clear"
+                        android:fontFamily="@font/audiowide"
+                        android:onClick="clearResult"
+                        android:text="@string/clear" />
+                </TableRow>
+
+            </TableLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/ScrollView03"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/shape_blue">
+
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/mytable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/stop"></TableLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/graphSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/result_table"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_cyan">
+
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_margin="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/graphSection"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_yellow"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/audiowide"
+                android:text="@string/Header_data_collect"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/sensorData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_cyan"
+                android:checkedButton="@+id/sound">
+
+                <RadioButton
+                    android:id="@+id/acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:text="@string/acc" />
+
+                <RadioButton
+                    android:id="@+id/gro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:text="@string/gro" />
+
+                <RadioButton
+                    android:id="@+id/both"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/audiowide"
+                    android:text="@string/both_sensor" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/shape_blue"
+                android:fontFamily="@font/audiowide"
+                android:hint="@string/name"
+                android:autofillHints=""
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/start_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_selector_2"
+                android:fontFamily="@font/audiowide"
+                android:onClick="registerDataListener"
+                android:text="@string/start"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/stop_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_selector"
+                android:fontFamily="@font/audiowide"
+                android:onClick="unregisterDataListener"
+                android:text="@string/stop"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Gait Recognition</string>
+    <string name="input_text_ra">Sensor</string>
+    <string name="gro">Gyroscope</string>
+    <string name="acc">Accelerometer</string>
+    <string name="time_4">4</string>
+    <string name="time_3">3</string>
+    <string name="time_5">5</string>
+    <string name="time_6">6</string>
+    <string name="Status">IDLE</string>
+    <string name="Header_Sensor">Sensor</string>
+    <string name="start">START</string>
+    <string name="Header_Time">Time (second)</string>
+    <string name="stop">STOP</string>
+    <string name="Header_Result">RESULT</string>
+    <string name="clear">Clear</string>
+    <string name="Header_data_collect">Data Collect</string>
+    <string name="both_sensor">Both Sensor</string>
+    <string name="name">Name</string>
+
+</resources>

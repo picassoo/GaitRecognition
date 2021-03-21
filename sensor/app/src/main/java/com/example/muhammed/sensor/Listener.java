@@ -221,7 +221,7 @@ public class Listener implements SensorEventListener {
                             listInput.add(matrix);
                         } else if (listInput.size() == inputSize) {
                             Log.d("ARRAY", "collected");
-                            String url = "http://ip:port";
+                            String url = "http://35.229.31.164:4244";
 
                             JSONObject jsonObject = new JSONObject();
                             try {

@@ -20,8 +20,8 @@ import com.jjoe64.graphview.GraphView;
 
 public class MainActivity extends Activity {
 
-    protected final static String URL_PREDICT = "http://ip:port";
-    protected final static String URL_COLLECT = "http://ip:port/data";
+    protected final static String URL_PREDICT = "http://35.229.31.164:4244";
+    protected final static String URL_COLLECT = "http://35.229.31.164:4244/data";
 
     SensorManager sensorManager;
     Sensor accelerometer;
